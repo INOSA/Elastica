@@ -4,7 +4,7 @@ namespace Elastica\Test;
 
 use Elastica\Document;
 use Elastica\Index;
-use Elastica\Query\Match;
+use Elastica\Query\AbstractMatch;
 use Elastica\Reindex;
 use Elastica\Type;
 
@@ -107,7 +107,7 @@ class ReindexTest extends Base
 
         $newIndex = $this->_createIndex('idx2', true, 2);
 
-        $query = new Match('id', 8);
+        $query = new AbstractMatch('id', 8);
 
         $reindex = new Reindex($oldIndex, $newIndex, [
             Reindex::QUERY => $query,
